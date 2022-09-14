@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Register.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +8,8 @@ import axios from "axios";
 import { registerRoute } from "../../utils/APIRoutes";
 
 function Register() {
+
+    const navigate = useNavigate();
   const [values, setvalues] = useState({
     username: "",
     email: "",
@@ -34,6 +36,13 @@ function Register() {
         password,
         confirmPassword,
       });
+      if (data.status===false) {
+        toast.error(data.message, toastOptions);
+      }
+      if (data.status===true) {
+       localStorage.setItem("user", JSON.stringify(data.user));
+         navigate("/");
+      }
     }
   };
 
