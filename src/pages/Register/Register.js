@@ -25,13 +25,17 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-   if(handleValidation()){
-     const { username, email, password, confirmPassword} = values;
-     const data = axios.post(registerRoute, {
-        username,email,password,confirmPassword
-        })
-     }
-   };
+    if (handleValidation()) {
+      console.log("in validation", registerRoute);
+      const { username, email, password, confirmPassword } = values;
+      const { data } = axios.post(registerRoute, {
+        username,
+        email,
+        password,
+        confirmPassword,
+      });
+    }
+  };
 
   const handleValidation = () => {
     const { username, email, password, confirmPassword } = values;
@@ -50,12 +54,12 @@ function Register() {
         toastOptions
       );
       return false;
-    } else if (email==="") {
-        toast.error("Email is required", toastOptions);
-        return false;
+    } else if (email === "") {
+      toast.error("Email is required", toastOptions);
+      return false;
     } else if (!email.includes("@")) {
-        toast.error("Email is not valid", toastOptions);
-        return false;
+      toast.error("Email is not valid", toastOptions);
+      return false;
     }
     return true;
   };
