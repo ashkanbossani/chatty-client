@@ -1,16 +1,67 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Register.scss";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logo.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { registerRoute } from "../../utils/APIRoutes";
 
-function Register(props) {
+function Register() {
+  const [values, setvalues] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const toastOptions = {
+    position: "top-center",
+    autoClose: 8000,
+    pauseOnHover: true,
+    draggable: true,
+    theme: "dark",
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert();
+   if(handleValidation()){
+     const { username, email, password, confirmPassword} = values;
+     const data = axios.post(registerRoute, {
+        username,email,password,confirmPassword
+        })
+     }
+   };
+
+  const handleValidation = () => {
+    const { username, email, password, confirmPassword } = values;
+    if (password !== confirmPassword) {
+      toast.error("passwords do not match", toastOptions);
+      return false;
+    } else if (username.length < 3) {
+      toast.error(
+        "Username is too short, should be greater then 3 characters",
+        toastOptions
+      );
+      return false;
+    } else if (password.length < 6) {
+      toast.error(
+        "Password is too short, should be greater then 6 characters",
+        toastOptions
+      );
+      return false;
+    } else if (email==="") {
+        toast.error("Email is required", toastOptions);
+        return false;
+    } else if (!email.includes("@")) {
+        toast.error("Email is not valid", toastOptions);
+        return false;
+    }
+    return true;
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+    setvalues({ ...values, [e.target.name]: e.target.value });
   };
 
   return (
@@ -57,6 +108,7 @@ function Register(props) {
           </span>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 }
