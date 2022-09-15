@@ -22,7 +22,12 @@ function Avatar(props) {
     theme: "dark",
   };
 
-  const setProfilePic = async () => {};
+  const setProfilePic = async () => {
+    if(selectedAvatar===undefined){
+      toast.error("Please select an avatar", toastOptions);
+      return;
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +50,9 @@ function Avatar(props) {
 
   return (
     <>
-      <div className="avatars">
+
+    {isLoading ? (<div className="avatars"> <img src={loader} alt="loader" className="loader"/></div> ) : ( 
+         <div className="avatars">
         <div className="avatars__title">
           <h1 className="avatars__title__title">Choose your avatar</h1>
         </div>
@@ -65,9 +72,10 @@ function Avatar(props) {
             );
           })}
         </div>
-        <button className="avatars__button" >Set as Avatar</button>
+        <button className="avatars__button" onClick={setProfilePic}>Set as Avatar</button>
       </div>
-      <ToastContainer />
+      )}
+    <ToastContainer />
     </>
   );
 }
