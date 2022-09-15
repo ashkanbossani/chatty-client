@@ -70,13 +70,7 @@ function Login() {
             placeholder="Username"
             name="username"
             onChange={(e) => handleChange(e)}
-          />
-          <input
-            className="register-form__input"
-            type="email"
-            placeholder="Email"
-            name="email"
-            onChange={(e) => handleChange(e)}
+            min="3"
           />
           <input
             className="register-form__input"
@@ -85,18 +79,11 @@ function Login() {
             name="password"
             onChange={(e) => handleChange(e)}
           />
-          <input
-            className="register-form__input"
-            type="password"
-            placeholder="Confirm Password"
-            name="confirmPassword"
-            onChange={(e) => handleChange(e)}
-          />
           <button className="register-form__button" type="submit">
-            Create User
+            Login
           </button>
           <span className="register-form__button--text">
-            Already have an account ? <Link to="/login">Login</Link>
+            Don't have an account ? <Link to="/register">Register</Link>
           </span>
         </form>
       </div>
