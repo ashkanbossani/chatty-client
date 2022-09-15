@@ -65,6 +65,7 @@ function Avatar(props) {
             );
           })}
         </div>
+        <button className="avatars__button" >Set as Avatar</button>
       </div>
       <ToastContainer />
     </>
