@@ -8,8 +8,7 @@ import axios from "axios";
 import { registerRoute } from "../../utils/APIRoutes";
 
 function Register() {
-
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const [values, setvalues] = useState({
     username: "",
     email: "",
@@ -25,23 +24,21 @@ function Register() {
     theme: "dark",
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (handleValidation()) {
-      console.log("in validation", registerRoute);
-      const { username, email, password, confirmPassword } = values;
-      const { data } = axios.post(registerRoute, {
+      const { username, email, password, } = values;
+      const { data } = await axios.post(registerRoute, {
         username,
         email,
         password,
-        confirmPassword,
       });
-      if (data.status===false) {
+      if (data.status === false) {
         toast.error(data.message, toastOptions);
       }
-      if (data.status===true) {
-       localStorage.setItem("user", JSON.stringify(data.user));
-         navigate("/");
+      if (data.status === true) {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/");
       }
     }
   };
