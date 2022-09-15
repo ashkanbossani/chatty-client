@@ -22,6 +22,12 @@ function Login() {
     theme: "dark",
   };
 
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/");
+    }
+  }, [navigate]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (handleValidation()) {
