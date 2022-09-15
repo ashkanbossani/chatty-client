@@ -8,10 +8,9 @@ function App(props) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<div>Home</div>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path="/chat" element={<Chat/>} />
+        <Route path="/" element={<Chat/>} />
       </Routes>
     </BrowserRouter>
 
