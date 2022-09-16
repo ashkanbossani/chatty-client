@@ -3,9 +3,14 @@ import "./Chat.scss";
 
 function Chat(props) {
     return (
-        <div>
-            <h1>Chat</h1>
+        <>
+        <div className="chat-container">
+            <div className="chat">
+
+            </div>
+            
         </div>
+        </>
     );
 }
 
