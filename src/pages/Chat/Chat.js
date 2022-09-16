@@ -14,15 +14,15 @@ function Chat(props) {
         if (!localStorage.getItem("user")) {
             navigate("/login");
           } else {
-           setCurrentUser(JSON.parse(localStorage.getItem("user")));
+           setCurrentUser( JSON.parse(localStorage.getItem("user")));
           }
-    }, []);
+    }, [navigate]);
 
     //if there is current user wil check if avater is set if not will navigate to set avatar page, then will get all contacts and set them to state
     useEffect(() => {
         if (currentUser){
-            if(currentUser.isAvatarImageSet){
-                const data = axios.get(`$(allUsersRoute)/${currentUser._id}`);
+            if(currentUser.isProfilePictureSet){
+                const data = axios.get(`${allUsersRoute}/${currentUser._id}`);
                 setContacts(data.data);
             }else {
                 navigate("/avatar");
@@ -35,7 +35,7 @@ function Chat(props) {
         <>
         <div className="chat-container">
             <div className="chat">
-                <Contacts/>
+                <Contacts contacts={contacts} currentUser={currentUser}/>
 
             </div>
             
