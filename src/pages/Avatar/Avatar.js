@@ -8,7 +8,7 @@ import { avatarRoute } from "../../utils/APIRoutes";
 import "./Avatar.scss";
 import { Buffer } from "buffer";
 
-function Avatar(props) {
+function Avatar() {
   const api = `https://api.multiavatar.com/4645646`;
   const navigate = useNavigate();
   const [avatars, setAvatars] = useState([]);
@@ -26,6 +26,20 @@ function Avatar(props) {
     if (selectedAvatar === undefined) {
       toast.error("Please select an avatar", toastOptions);
       return;
+    } else {
+      const user = await JSON.parse(localStorage.getItem("user"));
+      const {data} = await axios.post(`${avatarRoute}/${user._id}`, {
+        image: avatars[selectedAvatar],
+      });
+
+      if(data.isSet){
+        user.isAvatarImageSet = true;
+        user.avatarImage=data.image;
+        localStorage.setItem("user", JSON.stringify(user));
+        navigate('/')
+      } else {
+        toast.error("Something went wrong, Please try again", toastOptions);
+      }
     }
   };
 
@@ -46,7 +60,7 @@ function Avatar(props) {
     };
 
     fetchData();
-  }, []);
+  }, [api]);
 
   return (
     <>
