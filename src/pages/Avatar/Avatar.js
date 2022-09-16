@@ -22,21 +22,27 @@ function Avatar() {
     theme: "dark",
   };
 
+  useEffect(() => {
+    if (!localStorage.getItem("user")) {
+      navigate("/login");
+    }
+  }, [navigate]);
+
   const setProfilePic = async () => {
     if (selectedAvatar === undefined) {
       toast.error("Please select an avatar", toastOptions);
       return;
     } else {
       const user = await JSON.parse(localStorage.getItem("user"));
-      const {data} = await axios.post(`${avatarRoute}/${user._id}`, {
+      const { data } = await axios.post(`${avatarRoute}/${user._id}`, {
         image: avatars[selectedAvatar],
       });
-
-      if(data.isSet){
-        user.isAvatarImageSet = true;
-        user.avatarImage=data.image;
+      console.log(data)
+      if (data.isSet) {
+        user.isProfilePictureSet = true;
+        user.avatarPicture = data.image;
         localStorage.setItem("user", JSON.stringify(user));
-        navigate('/')
+        navigate("/");
       } else {
         toast.error("Something went wrong, Please try again", toastOptions);
       }
@@ -60,7 +66,7 @@ function Avatar() {
     };
 
     fetchData();
-  }, [api]);
+  });
 
   return (
     <>
