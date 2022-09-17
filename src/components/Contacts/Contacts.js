@@ -53,7 +53,7 @@ function Contacts({ contacts, currentUser }) {
                 alt="avatar"
               />
             </div>
-            <div className="contact__name">
+            <div className="contacts__current-user__name">
               <h2>{currentUserName}</h2>
             </div>
           </div>
