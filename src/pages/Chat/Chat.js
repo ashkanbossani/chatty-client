@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { allUsersRoute } from "../../utils/APIRoutes";
 import Contacts from "../../components/Contacts/Contacts";
+import Welcome from "../../components/Welcome/Welcome";
 import "./Chat.scss";
 
 function Chat() {
@@ -43,6 +44,7 @@ function Chat() {
       <div className="chat-container">
         <div className="chat">
           <Contacts contacts={contacts} currentUser={currentUser} changeChange={handleChatChange}/>
+          <Welcome currentUser={currentUser} />
         </div>
       </div>
     </>
