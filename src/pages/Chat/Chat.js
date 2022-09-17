@@ -8,6 +8,7 @@ import "./Chat.scss";
 function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentChat, setCurrentChat] = useState(undefined);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,11 +34,15 @@ function Chat() {
     fetchData();
   }, [currentUser]);
 
+  const handleChatChange = (chat) => {
+    setCurrentChat(chat);
+  }
+
   return (
     <>
       <div className="chat-container">
         <div className="chat">
-          <Contacts contacts={contacts} currentUser={currentUser} />
+          <Contacts contacts={contacts} currentUser={currentUser} changeChange={handleChatChange}/>
         </div>
       </div>
     </>
