@@ -5,11 +5,13 @@ import { allUsersRoute } from "../../utils/APIRoutes";
 import Contacts from "../../components/Contacts/Contacts";
 import Welcome from "../../components/Welcome/Welcome";
 import "./Chat.scss";
+import ChatContainer from "../../components/ChatContainer/ChatContainer";
 
 function Chat() {
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentChat, setCurrentChat] = useState(undefined);
+  const [isLoaded, setIsLoaded] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,6 +19,7 @@ function Chat() {
       navigate("/login");
     } else {
       setCurrentUser(JSON.parse(localStorage.getItem("user")));
+      setIsLoaded(true);
     }
   }, [navigate]);
 
@@ -44,7 +47,12 @@ function Chat() {
       <div className="chat-container">
         <div className="chat">
           <Contacts contacts={contacts} currentUser={currentUser} changeChange={handleChatChange}/>
+          {isLoaded && currentChat === undefined ? (
           <Welcome currentUser={currentUser} />
+            ) : (
+                <ChatContainer currentChat={currentChat} currentUser={currentUser} />
+            )}
+            
         </div>
       </div>
     </>
