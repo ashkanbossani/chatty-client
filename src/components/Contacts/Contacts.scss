@@ -1,0 +1,23 @@
+.contacts-container{
+    display:grid;
+    grid-template-columns: 10% 75% 15%;
+    overflow:hidden;
+    background-color: #080420;
+}
+.contacts{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    gap:1rem;
+
+    &__img{
+        height:2rem;
+    }
+
+    &__title{
+        color:white;
+        text-transform: uppercase;
+    }
+
+   
+}
