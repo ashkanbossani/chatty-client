@@ -40,19 +40,24 @@ function Chat() {
 
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
-  }
+  };
 
   return (
     <>
       <div className="chat-container">
         <div className="chat">
-          <Contacts contacts={contacts} currentUser={currentUser} changeChange={handleChatChange}/>
+          <Contacts
+            contacts={contacts}
+            currentUser={currentUser}
+            changeChat={handleChatChange}
+          />
           {isLoaded && currentChat === undefined ? (
-          <Welcome currentUser={currentUser} />
-            ) : (
-                <ChatContainer currentChat={currentChat} currentUser={currentUser} />
-            )}
-            
+            <Welcome currentUser={currentUser} />
+          ) : (
+            <ChatContainer
+              currentChat={currentChat}
+            />
+          )}
         </div>
       </div>
     </>
