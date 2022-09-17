@@ -20,14 +20,17 @@ function Chat() {
 
   //if there is current user wil check if avater is set if not will navigate to set avatar page, then will get all contacts and set them to state
   useEffect(() => {
-    if (currentUser) {
-      if (currentUser.isProfilePictureSet) {
-        const data = axios.get(`${allUsersRoute}/${currentUser._id}`);
-        setContacts(data.data);
-      } else {
-        navigate("/avatar");
+    async function fetchData() {
+      if (currentUser) {
+        if (currentUser.isProfilePictureSet) {
+          const data = await axios.get(`${allUsersRoute}/${currentUser._id}`);
+          setContacts(data.data);
+        } else {
+          navigate("/avatar");
+        }
       }
     }
+    fetchData();
   }, [currentUser]);
 
   return (
