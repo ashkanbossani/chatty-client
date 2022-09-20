@@ -2,35 +2,32 @@ import React from "react";
 import "./ChatContainer.scss";
 import Logout from "../Logout/Logout";
 import ChatInput from "../ChatInput/ChatInput";
+import Messages from "../Messages/Messages";
 
 function ChatContainer({ currentChat }) {
-  const handleSendMsg = (msg) => {
-    
-  }
+  const handleSendMsg = (msg) => {};
   return (
     <>
-    { currentChat && (
-    
-    <div className="chatContainer">
-      <div classname="chatContainer__header">
-        <div className="chatContainer__user">
-          <div className="chatContainer__avatar">
-            <img
-              src={`data:image/svg+xml;base64,${currentChat.avatarPicture}`}
-              alt="avatar"
-            />
+      {currentChat && (
+        <div className="chatContainer">
+          <div classname="chatContainer__header">
+            <div className="chatContainer__user">
+              <div className="chatContainer__avatar">
+                <img
+                  src={`data:image/svg+xml;base64,${currentChat.avatarPicture}`}
+                  alt="avatar"
+                />
+              </div>
+              <div className="chatContainer__name">
+                <h3>{currentChat.username}</h3>
+              </div>
+              <Logout />
+            </div>
           </div>
-          <div className="chatContainer__name">
-            <h3>{currentChat.username}</h3>
-          </div>
-          <Logout/>
+          <Messages />
+          <ChatInput handleSendMsg={handleSendMsg} />
         </div>
-      </div>
-      <div className="chatContainer__messages">
-        </div>
-        <ChatInput handleSendMsg={handleSendMsg}/>
-    </div>
-  )  }
+      )}
     </>
   );
 }

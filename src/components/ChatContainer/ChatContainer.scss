@@ -1,5 +1,9 @@
 .chatContainer {
   padding-top: 1rem;
+  display:grid;
+  grid-template-rows: 10% 80% 10%;
+  gap:0.1rem;
+  overflow:hidden;
 
   &__header {
     display: flex;

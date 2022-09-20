@@ -4,6 +4,7 @@ import Picker from "emoji-picker-react";
 import { IoMdSend } from "react-icons/io";
 import { BsEmojiSmileFill } from "react-icons/bs";
 
+
 function ChatInput() {
   return (
     <div className="chatInput">
