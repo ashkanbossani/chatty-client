@@ -1,8 +1,12 @@
 import React from "react";
 import "./ChatContainer.scss";
 import Logout from "../Logout/Logout";
+import ChatInput from "../ChatInput/ChatInput";
 
 function ChatContainer({ currentChat }) {
+  const handleSendMsg = (msg) => {
+    
+  }
   return (
     <>
     { currentChat && (
@@ -24,8 +28,7 @@ function ChatContainer({ currentChat }) {
       </div>
       <div className="chatContainer__messages">
         </div>
-        <div className="chatContainer__input">
-        </div>
+        <ChatInput handleSendMsg={handleSendMsg}/>
     </div>
   )  }
     </>
