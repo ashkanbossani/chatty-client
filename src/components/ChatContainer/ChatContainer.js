@@ -5,7 +5,9 @@ import ChatInput from "../ChatInput/ChatInput";
 import Messages from "../Messages/Messages";
 
 function ChatContainer({ currentChat }) {
-  const handleSendMsg = (msg) => {};
+  const handleSendMsg = (msg) => {
+    alert(msg)
+  };
   return (
     <>
       {currentChat && (
