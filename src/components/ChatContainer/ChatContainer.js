@@ -10,7 +10,7 @@ function ChatContainer({ currentChat }) {
     <>
       {currentChat && (
         <div className="chatContainer">
-          <div classname="chatContainer__header">
+          <div className="chatContainer__header">
             <div className="chatContainer__user">
               <div className="chatContainer__avatar">
                 <img
@@ -21,8 +21,8 @@ function ChatContainer({ currentChat }) {
               <div className="chatContainer__name">
                 <h3>{currentChat.username}</h3>
               </div>
-              <Logout />
             </div>
+            <Logout />
           </div>
           <Messages />
           <ChatInput handleSendMsg={handleSendMsg} />
