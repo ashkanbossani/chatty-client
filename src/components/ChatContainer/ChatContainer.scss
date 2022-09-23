@@ -4,6 +4,9 @@
   grid-template-rows: 10% 80% 10%;
   gap:0.1rem;
   overflow:hidden;
+  @media screen and (min-width:720px) and (max-width: 1080px) {
+    grid-template-rows: 15% 70% 15%;
+}
 
   &__header {
     display: flex;
@@ -27,4 +30,41 @@
     color: white;
     font-size: 2rem;
   }
+
+  &__messages{
+    padding:1rem 2rem;
+    gap:1rem;
+    display:flex;
+    flex-direction: column;
+    overflow: auto;
+
+    &--message{
+      display:flex;
+      align-items: center;
+    }
+  }
+
+  &__content{
+    max-width:40%;
+    overflow-wrap: break-word;
+    padding:1rem;
+    font-size:1.5rem;
+    border-radius: 1rem;
+    color:#d1d1d1
+  }
+}
+
+.sended{
+  justify-content: flex-end;
+}
+.sended > div {
+  background-color: #4f04ff21;
+}
+
+.recieved{
+  justify-content: flex-start;
+}
+
+.recieved > div {
+  background-color: #9900ff20;
 }
