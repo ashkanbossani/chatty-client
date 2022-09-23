@@ -6,15 +6,16 @@ import Messages from "../Messages/Messages";
 import axios from "axios";
 import { messagesRoute } from "../../utils/APIRoutes";
 
-
 function ChatContainer({ currentChat, currentUser }) {
+ 
   const handleSendMsg = async (msg) => {
     await axios.post(`${messagesRoute}`, {
       from: currentUser._id,
-      to: currentChat._id, 
+      to: currentChat._id,
       message: msg,
     });
   };
+  
   return (
     <>
       {currentChat && (
