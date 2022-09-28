@@ -38,7 +38,7 @@ function Chat() {
       }
     }
     fetchData();
-  }, [currentUser]);
+  }, [currentUser, navigate]);
 
   useEffect(() => {
     if(currentUser){

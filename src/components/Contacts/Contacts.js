@@ -24,17 +24,17 @@ function Contacts({ contacts, currentUser, changeChat }) {
       {currentUserAvatar && currentUserName && (
         <div className="contacts-container">
           <div className="contacts">
-            <img  className="contacts__img" src={Logo} alt="logo" />
+            <img className="contacts__img" src={Logo} alt="logo" />
             <h3 className="contacts__title">Chatty</h3>
           </div>
           <div className="contacts__contact">
-            {contacts?.map((contact, index) => {
+            {contacts.map((contact, index) => {
               return (
                 <div
                   className={`contact ${
                     index === currentSelected ? "selected" : ""
                   }`}
-                  key={index}
+                  key={contact._id}
                   onClick={() => changeCurrentChat(index, contact)}
                 >
                   <div className="contact__avatar">
