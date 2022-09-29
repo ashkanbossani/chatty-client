@@ -25,15 +25,15 @@ function ChatContainer({ currentChat, currentUser, socket }) {
   }, [currentUser, currentChat ]);
 
   const handleSendMsg = async (msg) => {
+    socket.current.emit("send-msg", {
+      to: currentChat._id,
+      from: currentUser._id,
+      msg,
+    });
     await axios.post(`${messagesRoute}`, {
       from: currentUser._id,
       to: currentChat._id,
       message: msg,
-    });
-    socket.current.emit("send-msg", {
-      to:currentChat._id,
-      from:currentUser._id,
-      message:msg,
     });
 
     const msgs = [...messages];

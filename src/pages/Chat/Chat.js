@@ -25,6 +25,13 @@ function Chat() {
     }
   }, [navigate]);
 
+  useEffect(() => {
+    if(currentUser){
+      socket.current = io(host);
+      socket.current.emit("add-user", currentUser._id);
+    }
+  }, [currentUser]);
+
   //if there is current user wil check if avater is set if not will navigate to set avatar page, then will get all contacts and set them to state
   useEffect(() => {
     async function fetchData() {
@@ -40,12 +47,7 @@ function Chat() {
     fetchData();
   }, [currentUser, navigate]);
 
-  useEffect(() => {
-    if(currentUser){
-      socket.current = io(host);
-      socket.current.emit("add-user", currentUser._id);
-    }
-  }, [currentUser]);
+ 
 
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
