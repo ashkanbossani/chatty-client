@@ -1,70 +1,147 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center">
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+  <h1>Chatty</h1>
+  <p>A Real time chat app that allows user to create account and log in to send messages to others using the app. Built with a MERN stack. Client side built using React and server built using Node.js, Express.js and MongoDB as the database to hold users and messages.  Used socket.io to communicate to server, and toastify to handle validation.</p>
+    
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br />
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!-- Table of Contents -->
+# Table of Contents
 
-### `npm test`
+- [About the Project](#about-the-project)
+  * [Screenshots](#screenshots)
+  * [Tech Stack](#tech-stack)
+  * [Features](#features)
+- [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Run Locally](#run-locally)
+- [Contact](#contact)
+- [Acknowledgements](#acknowledgements)
+  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<!-- About the Project -->
+## About the Project
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<!-- Screenshots -->
+### Screenshots
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="1429" alt="Screen Shot 2022-09-29 at 9 14 18 PM" src="https://user-images.githubusercontent.com/106493984/193195043-0279011b-961a-4fec-9fda-647b885b3ba8.png">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![Screen Shot 2022-09-29 at 9 14 53 PM](https://user-images.githubusercontent.com/106493984/193195086-2ae0989a-9d74-4575-9812-e1fc66795f6d.png)
 
-### `npm run eject`
+![Screen Shot 2022-09-29 at 9 15 24 PM](https://user-images.githubusercontent.com/106493984/193195149-01199a96-16ff-4292-b03d-d307537cf081.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Screen Shot 2022-09-29 at 9 16 09 PM](https://user-images.githubusercontent.com/106493984/193195168-8d5758b9-5abe-482c-9248-013385f6aa6f.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<!-- TechStack -->
+### Tech Stack
 
-## Learn More
+<details>
+  <summary>Client</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://sass-lang.com/">SASS</a></li>
+  </ul>
+</details>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<details>
+  <summary>Server</summary>
+  <ul>
+    <li><a href="https://nodejs.org/en/">Node.js</a></li>
+    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
+  </ul>
+</details>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+<!-- Features -->
+### Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Login and Register to create account
+- Choose Avatar to set as profile image
+- Chat in real time with other users using the app
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<!-- Getting Started -->
+## Getting Started
 
-### Making a Progressive Web App
+<!-- Prerequisites -->
+### Prerequisites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- Run Locally -->
+### Run Locally
 
-### Advanced Configuration
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+  git clone git@github.com:ashkanbossani/chatty-client.git
+```
 
-### Deployment
+Go to the project directory
+```bash
+ cd client
+ cd chat-app
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Install dependencies
 
-### `npm run build` fails to minify
+```bash
+  npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Clone Server code 
+
+```bash
+  git clone git@github.com:ashkanbossani/chatty-server.git
+```
+
+Install dependencies
+
+```bash'
+  cd server
+  npm install
+```
+
+Start the server
+
+```bash
+  cd server
+  npm start
+```
+
+Start the client
+
+```bash
+  npm start
+```
+
+<!-- Contact -->
+## Contact
+
+Ashkan Bossani  - abossani@hotmail.com
+
+Project Link:https://github.com/ashkanbossani/chatty-client
+
+Demo: https://chatty-app-client.netlify.app
+
+Server: https://github.com/ashkanbossani/chatty-server
+
+<!-- Acknowledgments -->
+## Acknowledgements
+
+Resources and libraries used in this project.
+
+ - [react-toastify](https://www.npmjs.com/package/react-toastify)
+ - [emoji-picker-react](https://www.npmjs.com/package/emoji-picker-react)
+ - [socket.io](https://socket.io/)
+ - [buffer](https://www.npmjs.com/package/buffer)
+ - [SASS](https://sass-lang.com/)
+ 
