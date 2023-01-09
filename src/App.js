@@ -5,6 +5,10 @@ import Chat from './pages/Chat/Chat';
 import Login from './pages/Login/Login';
 import Avatar from './pages/Avatar/Avatar';
 
+const Chat = lazy(() => import('./pages/Chat/Chat'));
+const Login = lazy(() => import('./pages/Login/Login'));
+const Register = lazy(() => import('./pages/Register/Register'));
+
 function App(props) {
   return (
     <BrowserRouter>
